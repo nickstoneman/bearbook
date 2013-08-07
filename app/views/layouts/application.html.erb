@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bearbook</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Bearbook</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  	<%= csrf_meta_tags %>
+  </head>
+  <body>
+  	<div class="navbar navbar-inverse">
+  		<div class="container">
 
-<%= yield %>
+    	<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      	<span class="icon-bar"></span>
+      	<span class="icon-bar"></span>
+      	<span class="icon-bar"></span>
+    	</button>
 
-</body>
+    	<!-- Be sure to leave the brand out there if you want it shown -->
+    	<a class="navbar-brand" href="#">BearBook</a>
+    	<ul class="nav navbar-nav">
+             <li><%= link_to "All Statuses", statuses_path %></li>
+             <li><a href="#">Link</a></li>
+             <li><a href="#">Link</a></li>
+        </ul>
+    	<!-- Place everything within .navbar-collapse to hide it until above 768px -->
+    	<div class="nav-collapse collapse navbar-responsive-collapse">
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</div><!-- /.navbar -->
+
+<div class="container">
+			<ul class="breadcrumb">
+ 	 			<li><%= link_to "All Statuses", statuses_path %></li>
+				 <li><a href="#">Library</a></li>
+				 <li class="active">Data</li>
+			</ul>
+</div>
+
+	<div class="container">
+		<%= yield %>
+	</div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Optionally enable responsive features in IE8. Respond.js can be obtained from https://github.com/scottjehl/Respond -->
+    <script src="js/respond.js"></script>
+  </body>
 </html>
